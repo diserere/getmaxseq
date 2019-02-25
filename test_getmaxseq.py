@@ -232,7 +232,6 @@ class Test04Negative(BaseTestClass):
         with self.assertRaises(TypeError):
             self.fn(charset_len = 2)
         
-    @unittest.skipIf(related_test_version <= '1.0.7', 'Not fixed until version 1.0.7: current %s' % related_test_version)
     def test_param_exceeded(self):
         """
         Test if parameters exceeded
@@ -240,7 +239,7 @@ class Test04Negative(BaseTestClass):
         with self.assertRaises(TypeError):
             self.fn('aabbcc',2,3)
         
-    @unittest.expectedFailure
+    #~ @unittest.expectedFailure
     def test_param2_negative(self):
         """
         Test if parameters 2 is negative
