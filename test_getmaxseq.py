@@ -35,17 +35,16 @@ is returned
 - the sequence consisting of 0 symbols is null-length
 """
 
-__version__ = '1.1.2'
+__version__ = '1.1.3'
 
 import sys
 import unittest
 
 
-related_test_version = '1.0.7'
-#~ global related_test_version
-#~ related_test_version = ''
 module_name = 'max_seq'
 fn_name = 'get_max_seq'
+
+related_test_version = '1.0.8'
 
 class BaseTestClass(unittest.TestCase):
 
@@ -79,7 +78,6 @@ class Test01Integration(unittest.TestCase):
         """
         try:
             self.m = __import__(module_name)
-            related_test_version = self.m.__version__
             self.fn = self.m.__getattribute__(fn_name)
         except:
             self.fail('Cannot import %s from %s: %s' % (fn_name, module_name, str(sys.exc_info())))

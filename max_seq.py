@@ -22,14 +22,12 @@
 #  
 #  
 
-
 """
-DOCSTRING
+Returns max substring containing not more than N different symbols
 """
 
 __version__ = '1.0.8'
 
-#~ import argparse
 
 def is_in_seq(charset, char, charset_len):
     if char in charset:
@@ -50,7 +48,7 @@ def get_max_seq(string, charset_len):
     """ 
     Return longest substring consisting of not more than given number of
     different chars found in input string. If more than one string of
-    equal length is found than the last one is returned.
+    equal length is found then the last one is returned.
     Args:
         str string: input string
         int charset_len: max number of different chars in sequence
