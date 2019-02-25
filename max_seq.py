@@ -27,7 +27,7 @@
 DOCSTRING
 """
 
-__version__ = '1.0.5'
+__version__ = '1.0.6'
 
 #~ import argparse
 
@@ -47,12 +47,17 @@ def save_max_substr(cur_substr, max_substr):
     return max_substr
 
 def get_max_seq(string, charset_len):
-    
     """ 
-    Function to find max substring containing not more than 'charset_len' 
-    symbols in 'string' string. 
-    Returns last found substring of max length
+    Return longest substring consisting of not more than given number of
+    different chars found in input string. If more than one string of
+    equal length is found than the last one is returned.
+    Args:
+        str string: input string
+        int charset_len: max number of different chars in sequence
     """
+    
+    if type(charset_len) is not int:
+        raise TypeError('int arg n: unexpected type: %s' % type(charset_len) )
 
     # if string is zero-length
     if not len(string):
