@@ -256,7 +256,7 @@ class Test05Load(BaseTestClass):
     Test suite for load tests
     """
 
-    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 2.8s)")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 2.8s on tested version 1.0.7)")
     def test_load_01_256k(self):
         """
         Test if big (256Kb) string is in and out
@@ -264,7 +264,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**10 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 12s)")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 12s on tested version 1.0.7)")
     def test_load_02_512k(self):
         """
         Test if big (512Kb) string is in and out
@@ -272,7 +272,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**11 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 56s)")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 56s on tested version 1.0.7)")
     def test_load_03_1m(self):
         """
         Test if big (1Mb) string is in and out
@@ -280,7 +280,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**12 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 303s)")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 303s on tested version 1.0.7)")
     def test_load_04_2m(self):
         """
         Test if big (2Mb) string is in and out
@@ -288,7 +288,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**13 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 1.74s on tested version 1.0.8)")
     def test_load_05_4m(self):
         """
         Test if big (4Mb) string is in and out
@@ -296,7 +296,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**14 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 3.4s on tested version 1.0.8)")
     def test_load_06_8m(self):
         """
         Test if big (8Mb) string is in and out
@@ -304,7 +304,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**15 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 6.8s on tested version 1.0.8)")
     def test_load_07_16m(self):
         """
         Test if big (16Mb) string is in and out
@@ -312,7 +312,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**16 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 14.14s on tested version 1.0.8)")
     def test_load_08_32m(self):
         """
         Test if big (32Mb) string is in and out
@@ -320,7 +320,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**17 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 28.46s on tested version 1.0.8)")
     def test_load_09_64m(self):
         """
         Test if big (64Mb) string is in and out

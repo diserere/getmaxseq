@@ -27,7 +27,7 @@
 DOCSTRING
 """
 
-__version__ = '1.0.7'
+__version__ = '1.0.8'
 
 #~ import argparse
 
@@ -97,7 +97,7 @@ def get_max_seq(string, charset_len):
                 else:
                     p -= 1
                         
-        max_substr = save_max_substr(cur_substr, max_substr) # here the ptr is at the end of string, save results again
+    max_substr = save_max_substr(cur_substr, max_substr) # here the ptr is at the end of string, save results again
 
     return max_substr
 
