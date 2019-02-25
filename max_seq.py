@@ -54,8 +54,12 @@ def get_max_seq(string, charset_len):
         int charset_len: max number of different chars in sequence
     """
     
+    # charset_len should be int and positive
     if type(charset_len) is not int:
-        raise TypeError('int arg n: unexpected type: %s' % type(charset_len) )
+        raise TypeError('arg charset_len: should be int but unexpected type: %s' % type(charset_len) )
+    elif charset_len < 0:
+        raise TypeError('arg charset_len: should not be negative but is: %s' % str(charset_len) )
+    
 
     # if string is zero-length
     if not len(string):
