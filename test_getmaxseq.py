@@ -242,8 +242,8 @@ class Test04Negative(BaseTestClass):
         """
         Test if parameters 2 is negative
         """
-        with self.assertRaises(Exception):
-        #~ with self.assertRaises(TypeError):
+        #~ with self.assertRaises(Exception):
+        with self.assertRaises(TypeError):
             self.fn('aabbcc',-2)
         
 
