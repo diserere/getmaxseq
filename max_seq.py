@@ -71,36 +71,32 @@ def get_max_seq(string, charset_len):
     
     while p <= len(string)-1 :
         
-        while True:
-            cur_char = string[p]
-            charset, found = is_in_seq(charset, cur_char, charset_len)
+        cur_char = string[p]
+        charset, found = is_in_seq(charset, cur_char, charset_len)
 
-            if found:
-                cur_substr += cur_char
-                p += 1
-                break
+        if found:
+            cur_substr += cur_char
+            p += 1
 
-            else: # the current sequence is over, save results, clear all and rewind to start of new sequence
-                max_substr = save_max_substr(cur_substr, max_substr) 
+        else: # the current sequence is over, save results, clear all and rewind to start of new sequence
+            max_substr = save_max_substr(cur_substr, max_substr) 
 
-                # flush charset 
-                charset = ""
-                # flush current substr
-                cur_substr = ""
-                # rewind ptr to start of new sequence
-                while True:
-                    cur_char = string[p]
-                    charset, found = is_in_seq(charset, cur_char, charset_len)
-                    if not found:
-                        # shift ptr fwd, clear registers, exit
-                        p += 1 
-                        charset = ""
-                        break
-                    else:
-                        p -= 1
+            # flush charset 
+            charset = ""
+            # flush current substr
+            cur_substr = ""
+            # rewind ptr to start of new sequence
+            while True:
+                cur_char = string[p]
+                charset, found = is_in_seq(charset, cur_char, charset_len)
+                if not found:
+                    # shift ptr fwd, clear registers, exit
+                    p += 1 
+                    charset = ""
+                    break
+                else:
+                    p -= 1
                         
-                break
-                
         max_substr = save_max_substr(cur_substr, max_substr) # here the ptr is at the end of string, save results again
 
     return max_substr
