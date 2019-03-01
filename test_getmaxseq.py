@@ -40,11 +40,11 @@ __version__ = '1.1.3'
 import sys
 import unittest
 
-
 module_name = 'max_seq'
 fn_name = 'get_max_seq'
 
 related_test_version = '1.0.8'
+
 
 class BaseTestClass(unittest.TestCase):
 
@@ -56,8 +56,8 @@ class BaseTestClass(unittest.TestCase):
         self.m = __import__(module_name)
         self.fn = self.m.__getattribute__(fn_name)
         self.longMessage = True
-    
-    
+
+#~ @unittest.skip('Skipped test suite')    
 class Test01Integration(unittest.TestCase):
     """ 
     Test that module and function are loadable 
@@ -83,6 +83,7 @@ class Test01Integration(unittest.TestCase):
             self.fail('Cannot import %s from %s: %s' % (fn_name, module_name, str(sys.exc_info())))
 
 
+#~ @unittest.skip('Skipped test suite')
 class Test02Positive(BaseTestClass):
 
     """
@@ -160,6 +161,7 @@ class Test02Positive(BaseTestClass):
         self.assertEqual(self.fn(self.string, 256), self.string)
         
 
+#~ @unittest.skip('Skipped test suite')
 class Test03Positive(BaseTestClass):
 
     """
@@ -181,6 +183,7 @@ class Test03Positive(BaseTestClass):
         self.assertEqual(self.fn(string = 'abbccdde', charset_len = 3), 'bbccdd')
         
 
+#~ @unittest.skip('Skipped test suite')
 class Test04Negative(BaseTestClass):
 
     """
@@ -326,7 +329,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**18 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 58.0s on tested version 1.0.8)")
     def test_load_10_128m(self):
         """
         Test if big (128Mb) string is in and out
@@ -335,13 +338,197 @@ class Test05Load(BaseTestClass):
         self.assertEqual(self.fn(self.string,256), self.string)
   
 
-    @unittest.skip("should not run until fixed: exceeded runtime")
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 124.77s on tested version 1.0.8)")
     def test_load_99_256m(self):
         """
         Test if big (256Mb) string is in and out
         """
         self.string = ''.join( [ chr(c)*2**20 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
+
+multi = 2**12 # 1Mb
+#~ multi = 2**11 # 512Kb
+#~ multi = 2**10 # 256Kb
+#~ multi = 2**9 # 128Kb
+
+
+#~ @unittest.skip('Skipped test suite')
+class Test06Perf(BaseTestClass):
+
+    """
+    Performance test suite 
+    """
+
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 0.22s on tested version 1.0.8)")
+    def test_perf_01_00_s16m_n1_8(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        for self.n in range(1,9):
+            self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+            self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 0.37s on tested version 1.0.8)")
+    def test_perf_01_01_s16m_n1(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 1
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 0.97s on tested version 1.0.8)")
+    def test_perf_01_01_s16m_n2(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 2
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 1.55s on tested version 1.0.8)")
+    def test_perf_01_01_s16m_n3(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 3
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 2.04s on tested version 1.0.8)")
+    def test_perf_01_01_s16m_n4(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 4
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 4.22s on tested version 1.0.8)")
+    def test_perf_01_01_s16m_n8(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 8
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 8.3s on tested version 1.0.8)")
+    def test_perf_01_02_s16m_n16(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 16
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 42.9s on tested version 1.0.8)")
+    def test_perf_01_01_s16m_n128(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 128
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 8.41s on tested version 1.0.8)")
+    def test_perf_02_s16m_n32(self):
+        """
+        Test if big (1Mb) string is in, seq len is 32 (less seq length, more passes)
+        """
+        self.n = 32
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 14.4s on tested version 1.0.8)")
+    def test_perf_03_s16m_n64(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 64
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 18.8s on tested version 1.0.8)")
+    def test_perf_04_s16m_n96(self):
+        """
+        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
+        """
+        self.n = 96
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 20.9s on tested version 1.0.8)")
+    def test_perf_05_s16m_n128(self):
+        """
+        Test if big (1Mb) string is in, seq len is 128 (half-string seq length, half passes)
+        """
+        self.n = 128
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 20.2s on tested version 1.0.8)")
+    def test_perf_06_s16m_n160(self):
+        """
+        Test if big (1Mb) string is in, seq len is 160 (more seq length, less passes)
+        """
+        self.n = 160
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 16.77s on tested version 1.0.8)")
+    def test_perf_07_s16m_n192(self):
+        """
+        Test if big (1Mb) string is in, seq len is 160 (more seq length, less passes)
+        """
+        self.n = 192
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 10.23s on tested version 1.0.8)")
+    def test_perf_08_0_s16m_n224(self):
+        """
+        Test if big (1Mb) string is in, seq len is 224 (more seq length, less passes)
+        """
+        self.n = 224
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 5.7s on tested version 1.0.8)")
+    def test_perf_08_1_s16m_n240(self):
+        """
+        Test if big (1Mb) string is in, seq len is 224 (more seq length, less passes)
+        """
+        self.n = 240
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 3.0s on tested version 1.0.8)")
+    def test_perf_08_2_s16m_n248(self):
+        """
+        Test if big (1Mb) string is in, seq len is 224 (more seq length, less passes)
+        """
+        self.n = 248
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 1.69s on tested version 1.0.8)")
+    def test_perf_08_3_s16m_n252(self):
+        """
+        Test if big (1Mb) string is in, seq len is 224 (more seq length, less passes)
+        """
+        self.n = 252
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
+  
+    @unittest.skip("should not run until fixed: exceeded runtime (approx. 0.24s on tested version 1.0.8)")
+    def test_perf_09_s16m_n256(self):
+        """
+        Test if big (1Mb) string is in, seq len is 256 (more seq length, less passes)
+        """
+        self.n = 256
+        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
+        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
   
 
 def main(args):
