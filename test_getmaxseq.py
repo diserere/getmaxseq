@@ -39,9 +39,13 @@ __version__ = '1.1.3'
 
 import sys
 import unittest
+import time
+
 
 module_name = 'max_seq'
 fn_name = 'get_max_seq'
+
+TIME_TRESHOLD = 0.01
 
 related_test_version = '1.0.8'
 
@@ -56,6 +60,14 @@ class BaseTestClass(unittest.TestCase):
         self.m = __import__(module_name)
         self.fn = self.m.__getattribute__(fn_name)
         self.longMessage = True
+        self._started_at = time.time()
+        
+    def tearDown(self):
+        elapsed = time.time() - self._started_at
+        if elapsed > TIME_TRESHOLD:
+            print('{} ({}s)'.format(self.id(), round(elapsed, 3)))
+            #~ print('Run time: ({}s)'.format(round(elapsed, 3)))
+    
 
 #~ @unittest.skip('Skipped test suite')    
 class Test01Integration(unittest.TestCase):
@@ -532,7 +544,8 @@ class Test06Perf(BaseTestClass):
   
 
 def main(args):
-    unittest.main(verbosity=2)
+    #~ unittest.main(verbosity=2)
+    unittest.main(verbosity=0)
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv))
