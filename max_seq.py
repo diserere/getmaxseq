@@ -26,21 +26,25 @@
 Returns max substring containing not more than N different symbols
 """
 
-__version__ = '1.1.1'
+__version__ = '1.1.3'
 
 
 def is_matching(char, n, charmap, charmap_len):
+    """
+    TODO: DOCSTRING
+    args:
+        char: str
+        1-length str to operate
+        n: int
+        current pos in str to save as last occurence
+        charmap: dict
+        dict with char as key and n as value, 
+         like {char: n[, char: n]...}
+        charmap_len: int
+    """
     # try to match with stack
-    for cp in range(len(charmap)):
-        if char == charmap[cp][0]:
-            # save position char last appear, move to stack end
-            charmap.pop(cp)
-            charmap.append((char, n))
-            match = True
-            return match
-    # add to stack if possible
-    if len(charmap) < charmap_len:
-        charmap.append((char, n))
+    if char in charmap or len(charmap) < charmap_len:
+        charmap[char] = n
         match = True
     else: # nor found neither added: not match
         match = False
@@ -78,26 +82,26 @@ def get_max_seq(string, charset_len):
     p = 0
     max_substr = ''
     cur_substr = ''
-    charset = []
+    charset = dict()
     
-    while p <= len(string)-1 :
-        
+    while p <= len(string)-1:
         cur_char = string[p]
         if not is_matching(cur_char, p, charset, charset_len): # end of sequence is found
             # compare and save result 
             max_substr = save_max_substr(cur_substr, max_substr) 
             # exclude first element from charmap, 
             #  get abs new start address (+1) from its address
-            new_start_addr = charset.pop(0)[1] - p + len(cur_substr) + 1
+            min_key = min(charset, key=charset.get)
+            new_start_addr = charset[min_key] - p + len(cur_substr) + 1
+            charset.pop(min_key)
             # add new char to charmap
-            charset.append((cur_char, p))
+            charset[cur_char] = p
             # trunk current ss for new sequence
             cur_substr = cur_substr[new_start_addr:]
             
         # add last char to ss, fwd ptr
         cur_substr += cur_char
         p += 1
-                        
     # here the ptr is at the end of string, compare results again
     max_substr = save_max_substr(cur_substr, max_substr) 
 
