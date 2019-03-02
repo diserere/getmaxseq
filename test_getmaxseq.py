@@ -454,16 +454,7 @@ class Test06Perf(BaseTestClass):
         self.n = 16
         self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
-  
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 42.9s on tested version 1.0.8)")
-    def test_perf_01_01_s1mb_n128(self):
-        """
-        Test if big (1Mb) string is in, seq len is 1 (near linear reading)
-        """
-        self.n = 128
-        self.string = ''.join( [ chr(c)*multi for c in range(256) ] )   
-        self.assertEqual(self.fn(self.string,self.n), self.string[-multi*self.n:])
-  
+
     #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 8.41s on tested version 1.0.8)")
     def test_perf_02_s1mb_n32(self):
         """
