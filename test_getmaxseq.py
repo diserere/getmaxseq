@@ -335,7 +335,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**15 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 6.8s on tested version 1.0.8)")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 6.8s on tested version 1.0.8)")
     def test_load_07_16m(self):
         """
         Test if big (16Mb) string is in and out
@@ -343,7 +343,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**16 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 14.14s on tested version 1.0.8)")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 14.14s on tested version 1.0.8)")
     def test_load_08_32m(self):
         """
         Test if big (32Mb) string is in and out
@@ -351,7 +351,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**17 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 28.46s on tested version 1.0.8)")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 28.46s on tested version 1.0.8)")
     def test_load_09_64m(self):
         """
         Test if big (64Mb) string is in and out
@@ -359,7 +359,7 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**18 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
   
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 58.0s on tested version 1.0.8)")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 58.0s on tested version 1.0.8)")
     def test_load_10_128m(self):
         """
         Test if big (128Mb) string is in and out
@@ -368,7 +368,7 @@ class Test05Load(BaseTestClass):
         self.assertEqual(self.fn(self.string,256), self.string)
   
 
-    @unittest.skip("should not run until fixed: exceeded runtime (approx. 124.77s on tested version 1.0.8)")
+    #~ @unittest.skip("should not run until fixed: exceeded runtime (approx. 124.77s on tested version 1.0.8)")
     def test_load_99_256m(self):
         """
         Test if big (256Mb) string is in and out
@@ -376,7 +376,10 @@ class Test05Load(BaseTestClass):
         self.string = ''.join( [ chr(c)*2**20 for c in range(256) ] )   
         self.assertEqual(self.fn(self.string,256), self.string)
 
-multi = 2**12 # 1Mb
+#~ multi = 2**15 # 8Mb
+#~ multi = 2**14 # 4Mb
+multi = 2**13 # 2Mb
+#~ multi = 2**12 # 1Mb
 #~ multi = 2**11 # 512Kb
 #~ multi = 2**10 # 256Kb
 #~ multi = 2**9 # 128Kb
