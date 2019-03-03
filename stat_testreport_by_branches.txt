@@ -141,3 +141,190 @@ Ran 18 tests in 12.027s
 
 OK (skipped=1)
 
+
+######################################################################
+### B: stack_list ####################################################
+
+### diserere@cooler:~/work/llvm_tz/getmaxseq$ echo -e '\n\n=== OLD VERSION  + del not pop ===\n\n'; py test_getmaxseq.py -c Test07Perf; py3 test_getmaxseq.py -c Test07Perf
+
+
+
+=== NEW VERSION: rev dict, zip  ===
+
+
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.695s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (4.876s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (5.335s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (5.781s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (6.856s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (8.265s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (11.524s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (16.868s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (27.416s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (44.88s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.72s)
+----------------------------------------------------------------------
+Ran 12 tests in 133.217s
+
+OK (skipped=1)
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.8s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (5.855s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (6.389s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (6.799s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (8.074s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (9.528s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (12.38s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (17.713s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (27.417s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (45.45s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.796s)
+----------------------------------------------------------------------
+Ran 12 tests in 141.202s
+
+OK (skipped=1)
+
+
+=== NEW VERSION: rev dict, iter items  ===
+
+
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.687s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (3.413s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (3.998s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (4.432s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (5.737s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (7.141s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (10.709s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (16.428s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (28.547s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (49.323s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.717s)
+----------------------------------------------------------------------
+Ran 12 tests in 131.135s
+
+OK (skipped=1)
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.769s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (4.298s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (4.959s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (5.42s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (6.629s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (8.321s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (11.312s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (16.907s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (28.293s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (49.966s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.76s)
+----------------------------------------------------------------------
+Ran 12 tests in 137.637s
+
+OK (skipped=1)
+
+
+=== NEW VERSION: list dict, use index  ===
+
+
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.696s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (3.345s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (3.577s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (3.825s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (4.155s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (4.771s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (5.987s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (8.623s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (11.724s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (18.269s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.696s)
+----------------------------------------------------------------------
+Ran 12 tests in 65.669s
+
+OK (skipped=1)
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.753s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (4.827s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (5.134s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (5.524s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (6.278s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (7.28s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (8.765s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (11.742s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (17.133s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (25.849s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.794s)
+----------------------------------------------------------------------
+Ran 12 tests in 94.081s
+
+OK (skipped=1)
+
+
+=== OLD VERSION  ===
+
+
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.682s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (2.43s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (2.681s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (2.905s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (3.316s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (4.126s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (5.799s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (9.234s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (14.877s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (26.169s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.732s)
+----------------------------------------------------------------------
+Ran 12 tests in 72.951s
+
+OK (skipped=1)
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.773s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (4.025s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (4.546s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (4.864s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (5.744s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (7.052s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (9.602s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (15.004s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (25.801s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (45.828s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.767s)
+----------------------------------------------------------------------
+Ran 12 tests in 124.007s
+
+OK (skipped=1)
+
+
+=== OLD VERSION  + del not pop ===
+
+
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.68s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (2.366s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (2.619s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (2.825s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (3.242s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (4.015s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (5.707s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (9.085s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (14.68s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (25.907s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.716s)
+----------------------------------------------------------------------
+Ran 12 tests in 71.844s
+
+OK (skipped=1)
+__main__.Test07Perf.test_perf07_01_c1x8m_n1 (0.751s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n1 (3.738s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n2 (4.178s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n4 (4.583s)
+__main__.Test07Perf.test_perf07_02_c256x32k_n8 (5.338s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n16 (6.722s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n32 (9.48s)
+__main__.Test07Perf.test_perf07_03_c256x32k_n64 (14.825s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n128 (25.629s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n255 (45.975s)
+__main__.Test07Perf.test_perf07_04_c256x32k_n256 (0.792s)
+----------------------------------------------------------------------
+Ran 12 tests in 122.013s
+
+OK (skipped=1)
+
+
+
+
+
+

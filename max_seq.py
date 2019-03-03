@@ -96,19 +96,28 @@ def get_max_seq(string, charset_len):
         if not is_matching(cur_char, p, charset, charset_len): 
             # end of sequence is found; compare and save result 
             max_substr = save_max_substr(cur_substr, max_substr) 
+            
             # get key of leftmost (by addr) element from charmap
+            
             #~ min_key = min(charset, key=charset.get)
+            #~ min_v = charset[min_key]
+                        
             charset_k = list(charset.keys())
             charset_v = list(charset.values())
-            #~ charset_k = charset.keys()
-            #~ charset_v = charset.values()
             min_v = min(charset_v) 
             min_key = charset_k[charset_v.index(min_v)]
+            
+            #~ charset_rev = {v: k for k,v in charset.items()}
+            # charset_rev = dict(zip(charset.values(), charset.keys()))
+            #~ min_v = min(charset_rev.keys())
+            #~ min_key = charset_rev[min_v]
+            
             # get new start address from its address
             #~ new_start_addr = charset[min_key] - p + len(cur_substr) + 1
             new_start_addr = min_v - p + len(cur_substr) + 1
             # remove leftmost element
-            charset.pop(min_key)
+            #~ charset.pop(min_key)
+            del charset[min_key]
             # add new char to charmap
             charset[cur_char] = p
             # trunk current ss for new sequence
