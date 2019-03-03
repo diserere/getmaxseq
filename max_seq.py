@@ -26,23 +26,33 @@
 Returns max substring containing not more than N different symbols
 """
 
-__version__ = '1.0.8'
+__version__ = '1.1.1'
 
 
-def is_in_seq(charset, char, charset_len):
-    if char in charset:
-        found = True
-    elif len(charset) < charset_len:
-        charset += char
-        found = True
-    else:
-        found = False
-    return charset, found
-    
+def is_matching(char, n, charmap, charmap_len):
+    # try to match with stack
+    for cp in range(len(charmap)):
+        if char == charmap[cp][0]:
+            # save position char last appear, move to stack end
+            charmap.pop(cp)
+            charmap.append((char, n))
+            match = True
+            return match
+    # add to stack if possible
+    if len(charmap) < charmap_len:
+        charmap.append((char, n))
+        match = True
+    else: # nor found neither added: not match
+        match = False
+
+    return match
+
+
 def save_max_substr(cur_substr, max_substr):
     if len(cur_substr) >= len(max_substr): # Use ">" here to save first max substr of the same length instead of last one
         max_substr = cur_substr
     return max_substr
+
 
 def get_max_seq(string, charset_len):
     """ 
@@ -60,48 +70,39 @@ def get_max_seq(string, charset_len):
     elif charset_len < 0:
         raise TypeError('arg charset_len: should not be negative but is: %s' % str(charset_len) )
     
-
-    # if string is zero-length
-    if not len(string):
+    # Null charset_len cause exception while pop from null list, see below
+    if len(string) == 0 or charset_len == 0:
         return ""
     
     # start from beginning of string
     p = 0
-    max_substr = ""
-    cur_substr = ""
-    charset = ""
+    max_substr = ''
+    cur_substr = ''
+    charset = []
     
     while p <= len(string)-1 :
         
         cur_char = string[p]
-        charset, found = is_in_seq(charset, cur_char, charset_len)
-
-        if found:
-            cur_substr += cur_char
-            p += 1
-
-        else: # the current sequence is over, save results, clear all and rewind to start of new sequence
+        if not is_matching(cur_char, p, charset, charset_len): # end of sequence is found
+            # compare and save result 
             max_substr = save_max_substr(cur_substr, max_substr) 
-
-            # flush charset 
-            charset = ""
-            # flush current substr
-            cur_substr = ""
-            # rewind ptr to start of new sequence
-            while True:
-                cur_char = string[p]
-                charset, found = is_in_seq(charset, cur_char, charset_len)
-                if not found:
-                    # shift ptr fwd, clear registers, exit
-                    p += 1 
-                    charset = ""
-                    break
-                else:
-                    p -= 1
+            # exclude first element from charmap, 
+            #  get abs new start address (+1) from its address
+            new_start_addr = charset.pop(0)[1] - p + len(cur_substr) + 1
+            # add new char to charmap
+            charset.append((cur_char, p))
+            # trunk current ss for new sequence
+            cur_substr = cur_substr[new_start_addr:]
+            
+        # add last char to ss, fwd ptr
+        cur_substr += cur_char
+        p += 1
                         
-    max_substr = save_max_substr(cur_substr, max_substr) # here the ptr is at the end of string, save results again
+    # here the ptr is at the end of string, compare results again
+    max_substr = save_max_substr(cur_substr, max_substr) 
 
     return max_substr
+    
 
 def main(args):
 
@@ -123,9 +124,7 @@ def main(args):
     
     print ("Last substring of max length of " + str(len(max_substr)) + " is:")
     print ("[" + max_substr + "]")
-                
-            
-    
+
 
 if __name__ == '__main__':
     import sys
