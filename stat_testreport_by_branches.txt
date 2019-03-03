@@ -1,0 +1,143 @@
+Branch:
+  ---
+
+  fastread_dev      ac68561 [origin/fastread_dev] Merge branch 'master' into fastread_dev
+  fastread_dev_dict f59435a [origin/fastread_dev_dict] Merge branch 'master' into fastread_dev_dict: updated autotests
+* master            c64c628 [origin/master] Merge last version autotests from 'fastread_dev_dict', commit 0f4a74b
+
+Tests:
+  ---
+
+__main__.Test05Load.test_load_01_256k (0.127s)
+__main__.Test05Load.test_load_02_512k (0.219s)
+__main__.Test05Load.test_load_03_1m (0.436s)
+__main__.Test05Load.test_load_04_2m (0.875s)
+__main__.Test05Load.test_load_05_4m (1.754s)
+__main__.Test05Load.test_load_06_8m (3.507s)
+__main__.Test05Load.test_load_07_16m (6.972s)
+__main__.Test05Load.test_load_08_32m (13.922s)
+__main__.Test05Load.test_load_09_64m (27.659s)
+__main__.Test05Load.test_load_10_128m (55.142s)
+__main__.Test05Load.test_load_99_256m (110.04s)
+----------------------------------------------------------------------
+Ran 11 tests in 220.656s
+
+OK
+__main__.Test06Perf.test_perf_01_01_s1mb_n1 (0.698s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n2 (1.799s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n3 (2.927s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n4 (4.136s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n8 (8.665s)
+__main__.Test06Perf.test_perf_01_02_s1mb_n16 (17.161s)
+__main__.Test06Perf.test_perf_02_s1mb_n32 (32.959s)
+__main__.Test06Perf.test_perf_03_s1mb_n64 (59.088s)
+__main__.Test06Perf.test_perf_04_s1mb_n96 (77.027s)
+__main__.Test06Perf.test_perf_05_s1mb_n128 (85.346s)
+__main__.Test06Perf.test_perf_06_s1mb_n160 (82.665s)
+__main__.Test06Perf.test_perf_07_s1mb_n192 (68.641s)
+__main__.Test06Perf.test_perf_08_0_s1mb_n224 (41.308s)
+__main__.Test06Perf.test_perf_08_1_s1mb_n240 (22.89s)
+__main__.Test06Perf.test_perf_08_2_s1mb_n248 (12.337s)
+__main__.Test06Perf.test_perf_08_3_s1mb_n252 (6.684s)
+__main__.Test06Perf.test_perf_09_s1mb_n256 (0.88s)
+----------------------------------------------------------------------
+Ran 19 tests in 525.212s
+
+OK (skipped=2)
+======================================================================
+
+Branch:
+  ---
+
+* fastread_dev      2eaa3bf [origin/fastread_dev: впереди 1] Manual merge from master: get last tests from master
+  fastread_dev_dict 8dd7635 [origin/fastread_dev_dict] Merge branch 'master' into fastread_dev_dict: get last tests from master
+  master            ab2f3db [origin/master] Merge branch 'master' of https://github.com/diserere/getmaxseq
+
+Tests:
+  ---
+
+__main__.Test05Load.test_load_01_256k (1.941s)
+__main__.Test05Load.test_load_02_512k (3.897s)
+__main__.Test05Load.test_load_03_1m (7.74s)
+__main__.Test05Load.test_load_04_2m (15.496s)
+__main__.Test05Load.test_load_05_4m (30.97s)
+__main__.Test05Load.test_load_06_8m (61.968s)
+__main__.Test05Load.test_load_07_16m (123.079s)
+__main__.Test05Load.test_load_08_32m (246.859s)
+__main__.Test05Load.test_load_09_64m (494.612s)
+__main__.Test05Load.test_load_10_128m (989.255s)
+__main__.Test05Load.test_load_99_256m (1983.513s)
+----------------------------------------------------------------------
+Ran 11 tests in 3959.332s
+
+OK
+__main__.Test06Perf.test_perf_01_01_s1mb_n1 (1.943s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n2 (1.931s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n3 (2.02s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n4 (2.115s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n8 (2.571s)
+__main__.Test06Perf.test_perf_01_02_s1mb_n16 (3.43s)
+__main__.Test06Perf.test_perf_02_s1mb_n32 (4.904s)
+__main__.Test06Perf.test_perf_03_s1mb_n64 (7.741s)
+__main__.Test06Perf.test_perf_04_s1mb_n96 (10.083s)
+__main__.Test06Perf.test_perf_05_s1mb_n128 (12.081s)
+__main__.Test06Perf.test_perf_06_s1mb_n160 (13.416s)
+__main__.Test06Perf.test_perf_07_s1mb_n192 (14.452s)
+__main__.Test06Perf.test_perf_08_0_s1mb_n224 (15.042s)
+__main__.Test06Perf.test_perf_08_1_s1mb_n240 (15.21s)
+__main__.Test06Perf.test_perf_08_2_s1mb_n248 (15.186s)
+__main__.Test06Perf.test_perf_08_3_s1mb_n252 (15.359s)
+__main__.Test06Perf.test_perf_09_s1mb_n256 (15.215s)
+----------------------------------------------------------------------
+Ran 18 tests in 152.700s
+
+OK (skipped=1)
+======================================================================
+
+Branch:
+  ---
+
+  fastread_dev      2eaa3bf [origin/fastread_dev: впереди 1] Manual merge from master: get last tests from master
+* fastread_dev_dict 8dd7635 [origin/fastread_dev_dict] Merge branch 'master' into fastread_dev_dict: get last tests from master
+  master            ab2f3db [origin/master] Merge branch 'master' of https://github.com/diserere/getmaxseq
+
+Tests:
+  ---
+
+__main__.Test05Load.test_load_01_256k (0.111s)
+__main__.Test05Load.test_load_02_512k (0.175s)
+__main__.Test05Load.test_load_03_1m (0.341s)
+__main__.Test05Load.test_load_04_2m (0.685s)
+__main__.Test05Load.test_load_05_4m (1.361s)
+__main__.Test05Load.test_load_06_8m (2.736s)
+__main__.Test05Load.test_load_07_16m (5.584s)
+__main__.Test05Load.test_load_08_32m (11.008s)
+__main__.Test05Load.test_load_09_64m (21.496s)
+__main__.Test05Load.test_load_10_128m (42.903s)
+__main__.Test05Load.test_load_99_256m (85.798s)
+----------------------------------------------------------------------
+Ran 11 tests in 172.201s
+
+OK
+__main__.Test06Perf.test_perf_01_01_s1mb_n1 (0.724s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n2 (0.689s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n3 (0.688s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n4 (0.692s)
+__main__.Test06Perf.test_perf_01_01_s1mb_n8 (0.705s)
+__main__.Test06Perf.test_perf_01_02_s1mb_n16 (0.701s)
+__main__.Test06Perf.test_perf_02_s1mb_n32 (0.701s)
+__main__.Test06Perf.test_perf_03_s1mb_n64 (0.722s)
+__main__.Test06Perf.test_perf_04_s1mb_n96 (0.731s)
+__main__.Test06Perf.test_perf_05_s1mb_n128 (0.733s)
+__main__.Test06Perf.test_perf_06_s1mb_n160 (0.731s)
+__main__.Test06Perf.test_perf_07_s1mb_n192 (0.72s)
+__main__.Test06Perf.test_perf_08_0_s1mb_n224 (0.71s)
+__main__.Test06Perf.test_perf_08_1_s1mb_n240 (0.701s)
+__main__.Test06Perf.test_perf_08_2_s1mb_n248 (0.698s)
+__main__.Test06Perf.test_perf_08_3_s1mb_n252 (0.692s)
+__main__.Test06Perf.test_perf_09_s1mb_n256 (0.689s)
+----------------------------------------------------------------------
+Ran 18 tests in 12.027s
+
+OK (skipped=1)
+
